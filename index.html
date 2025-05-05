@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virtual Walkthrough</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.marzipano.net/demos/vendor/marzipano.js"></script>
+  <style>
+    html, body, #pano { width: 100%; height: 100%; margin: 0; background: #000; }
+    .toolbar {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px;
+    }
+    .toolbar button {
+      margin: 3px; padding: 5px 10px;
+      background: #fff; border: none; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="pano"></div>
+<div class="toolbar">
+  <button onclick="switchScene('phongkhach1')">phongkhach1</button>
+<button onclick="switchScene('kho')">kho</button>
+<button onclick="switchScene('toilet1')">toilet1</button>
+<button onclick="switchScene('toilet2')">toilet2</button>
+<button onclick="switchScene('bep')">bep</button>
+<button onclick="switchScene('bep2')">bep2</button>
+<button onclick="switchScene('cau_thang')">cau_thang</button>
+<button onclick="switchScene('phongkhach2')">phongkhach2</button>
+
+</div>
+<script>
+  var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+  var scenes = {};
+  
+    scenes["phongkhach1"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/phongkhach1.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["kho"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/kho.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["toilet1"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/toilet1.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["toilet2"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/toilet2.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["bep"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/bep.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["bep2"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/bep2.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["cau_thang"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/cau_thang.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+    scenes["phongkhach2"] = viewer.createScene({
+      source: Marzipano.ImageUrlSource.fromString("images/phongkhach2.jpg"),
+      geometry: new Marzipano.EquirectGeometry([{
+        width: 4000
+      }]),
+      view: new Marzipano.RectilinearView()
+    });
+  function switchScene(name) {
+    scenes[name].switchTo();
+  }
+  switchScene("phongkhach1");
+</script>
+</body>
+</html>
